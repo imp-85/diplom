@@ -32,3 +32,19 @@
 
 Пробуем заходить на остальные VM по SSH
 ![ssh](/pic/ssh-keys.jpg "ssh")
+
+Запускаем плейбук настройки веб серверов
+![servers-playbook](/pic/web-node-log-file.jpg "servers-playbook")
+
+Проверяем nginx
+![nginx](/pic/nginx-service.jpg "nginx")
+
+Проверяем Node Exporter
+![Node Exporter](/pic/node_exp.jpg "Node Exporter")
+
+Log Exporter
+![Log Exporter](/pic/prometheus-nginxlog.jpg "Log Exporter")
+
+Ну и пробуем посмотреть всю эту "мазню" в браузере
+![site](/pic/site.jpg "site")
+
