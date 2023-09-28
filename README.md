@@ -48,3 +48,20 @@ Log Exporter
 Ну и пробуем посмотреть всю эту "мазню" в браузере
 ![site](/pic/site.jpg "site")
 
+Запускаем остальные плейбуки
+Prometheus
+![Prometheus](/pic/prometheus.jpg "Prometheus")
+
+Elasticsearch
+![Elasticsearch](/pic/elastic.jpg "Elasticsearch")
+
+Grafana
+![Grafana](/pic/grafana.jpg "Grafana")
+
+Kibana
+![Kibana](/pic/kibana.jpg "Kibana")
+
+Результат
+![grafana-1](/pic/graf1.jpg "grafana-1")
+![grafana-2](/pic/graf2.jpg "grafana-2")
+![filebeat-elas](/pic/filebeat-in-elast.jpg "filebeat-elas")
