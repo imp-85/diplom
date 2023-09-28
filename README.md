@@ -49,6 +49,7 @@ Log Exporter
 ![site](/pic/site.jpg "site")
 
 Запускаем остальные плейбуки
+
 Prometheus
 ![Prometheus](/pic/prometheus.jpg "Prometheus")
 
