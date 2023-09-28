@@ -21,7 +21,7 @@
 
 [Ansible:](https://github.com/imp-85/diplom/tree/main/ansible)
 
-Формируем файл HOST.INI:(https://github.com/imp-85/diplom/blob/main/ansible/inventory/hosts.ini) для доступа к виртуальным машинам через bastion-host
+Формируем файл HOSTS:(https://github.com/imp-85/diplom/blob/main/ansible/inventory/hosts.ini) для доступа к виртуальным машинам через bastion-host
 ![ansible-host](/pic/ansible-hosts.jpg "Ansible-Hosts")
 
 Проверяем доступность хостов
