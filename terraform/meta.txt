@@ -1,0 +1,8 @@
+#cloud-config
+users:
+ - name: it-garantn
+   groups: sudo
+   shell: /bin/bash
+   sudo: ['ALL=(ALL) NOPASSWD:ALL']
+   ssh-authorized-keys:
+     - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCUNxrUIBkpmXjCukq2J1OxY5EIUBa8U2MXMAnobzIPseDlsACC4XAEgzWh4Rwj+w2cQ22FrUWhGE45oxCKIL2acOCpNcFdWxHu7H18Pi5g+xen1NUHd/F8q0BoeFJ4aAFT+65iTai1fQHHo053c7ZFtBzvfhJ7x+AZet6Wrd9nwbHge6b74IJxaDxTEQ39TlSFuHVRLUVAJgE6mWIwO4RIX56IpWQckusMgjuEpC+0RI/pHZVODyYIOUjlkq5+73Ic7C9lRsjiltV/UtgrradmQsoVCneFDu1sVZ+8uY4CozMJ0CD+T91O6dKrixuCyQDR0+9bB2HTfn6vqT19D0uGneIlKES62+NIkGZqvAXVBRSFpN3i5ZqSY9C7qvTPZOcKgJvaHrKnln5mMlfyb+0zXIGBlwfZT0StMUABYxIciJWI6jP23jAxkkUuVRmimhqprbmqEe1tgJSaVDNunoUMaeyGzhFq7veNQTNxDxUrmS4cwwKe/3rI3K5mI9SiuWE= it-garantn@THNKPD-E14

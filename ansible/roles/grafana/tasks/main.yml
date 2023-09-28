@@ -1,0 +1,56 @@
+---  
+- name: install reqs
+  apt: 
+    name: libfontconfig1
+    update_cache: yes
+    state: latest
+
+- name: download grafana
+  get_url:
+    url: https://dl.grafana.com/oss/release/grafana_9.3.6_amd64.deb
+    dest: /tmp
+      
+- name: install grafana
+  apt:
+    deb: "/tmp/grafana_9.3.6_amd64.deb"
+  notify: start grafana
+
+- name: start handlers
+  meta: flush_handlers
+
+#- name: wait for grafana up
+ # uri:
+  #  url: "http://{{ grafana_ip }}:3000"
+   # status_code: 200
+  #register: __result
+  #until: __result.status == 200
+  #retries: 120
+  #delay: 1
+
+#- name: change admin password 
+ # shell : "grafana-cli admin reset-admin-password {{ admin }}"
+  #register: __command_admin
+  #changed_when: __command_admin.rc !=0
+
+- name: copy grafana datasource config
+  template:
+    src: grafana-prometehus-datasource.yml.j2
+    dest: "/etc/grafana/provisioning/datasources/prometheus.yml"
+    owner: root
+    group: grafana
+  notify: restart grafana
+    
+- name: copy grafana dashboard
+  copy:
+    src: NGINX Servers Metrics.json
+    dest: "/etc/grafana/provisioning/dashboards/"
+    owner: root
+    group: grafana
+    
+- name: import dashboard
+  grafana_dashboard:
+    grafana_url: "http://51.250.45.75:3000"
+    grafana_user: "admin"
+    grafana_password: "admin"
+    path: /etc/grafana/provisioning/dashboards/NGINX Servers Metrics.json
+  notify: enable grafana

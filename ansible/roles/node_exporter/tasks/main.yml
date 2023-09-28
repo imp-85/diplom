@@ -1,0 +1,29 @@
+---
+- name: download node exporter
+  get_url:
+    url: https://github.com/prometheus/node_exporter/releases/download/v1.1.2/node_exporter-1.1.2.linux-amd64.tar.gz
+    dest: /tmp
+    
+- name: unarchive node exporter
+  unarchive:
+    remote_src: yes
+    src: /tmp/node_exporter-1.1.2.linux-amd64.tar.gz
+    dest: /tmp
+    
+- name: move node exporter to /usr/local/bin
+  copy:
+    src: /tmp/node_exporter-1.1.2.linux-amd64/node_exporter
+    dest: /usr/local/bin/node_exporter
+    remote_src: yes
+    owner: root
+    group: root
+    mode: 0755
+    
+- name: install unit file to systemd
+  copy:
+    src: node_exporter.service
+    dest: /etc/systemd/system/node_exporter.service
+    owner: root
+    group: root
+    mode: 0600
+  notify: node exporter systemd

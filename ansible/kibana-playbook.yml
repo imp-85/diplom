@@ -1,0 +1,8 @@
+- hosts: kibana
+  remote_user: it-garantn
+  become: yes
+  become_method: sudo
+  vars:
+    elasticsearch_ip: "{{ groups['elasticsearch'] | map('extract', hostvars, ['inventory_hostname']) | join ('') }}"
+  roles:
+    - kibana

@@ -1,0 +1,20 @@
+---  
+- name: install prometheus
+  apt:
+    name: prometheus
+    update_cache: yes
+    state: latest
+  notify: prometheus systemd
+
+- name: replace prometheus config
+  template: 
+    src: prometheus.yml.j2
+    dest: /etc/prometheus/prometheus.yml
+        
+- name: copy record rules
+  copy: 
+    src: node-exp-rules.yml
+    dest: /etc/prometheus/
+    mode: preserve
+  notify: restart prometheus
+  

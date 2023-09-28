@@ -1,0 +1,19 @@
+---
+- name: copy filebeat.deb
+  copy:
+    src: filebeat-8.6.2-amd64.deb
+    dest: /home/it-garantn
+    
+- name: install filebeat
+  apt:
+    deb: "/home/it-garantn/filebeat-8.6.2-amd64.deb"
+    
+- name: replace config file
+  template:
+    src: filebeat.yml.j2
+    dest: /etc/filebeat/filebeat.yml
+  notify:
+    - enable filebeat
+        
+- name: setup filebeat
+  shell: 'filebeat setup'

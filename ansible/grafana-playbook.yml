@@ -1,0 +1,9 @@
+- hosts: grafana
+  remote_user: it-garantn
+  become: yes
+  become_method: sudo
+  vars:
+    prometheus_ip: "{{ groups['prometheus'] | map('extract', hostvars, ['inventory_hostname']) | join ('') }}"
+    grafana_ip: "{{ groups['grafana'] | map('extract', hostvars, ['inventory_hostname']) | join ('') }}"
+  roles:
+    - grafana

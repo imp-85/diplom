@@ -1,0 +1,12 @@
+- hosts: webservers
+  remote_user: it-garantn
+  become: yes
+  become_method: sudo
+  vars:
+    elasticsearch_ip: "{{ groups['elasticsearch'] | map('extract', hostvars, ['inventory_hostname']) | join ('') }}"
+    kibana_ip: "{{ groups['kibana'] | map('extract', hostvars, ['inventory_hostname']) | join ('') }}"
+  roles:
+    - nginx
+    - node_exporter
+    - nginx_logexporter
+    - filebeat

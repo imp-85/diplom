@@ -1,0 +1,21 @@
+---
+- name: install nginx
+  apt:
+    name: nginx
+    state: latest
+  notify: nginx systemd
+
+- name: copy website files
+  copy:
+    src: website
+    dest: /var/www
+    mode: preserve
+
+- name: replace nginx config
+  copy: 
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf
+  notify: restart nginx
+  
+- name: start nginx handlers
+  meta: flush_handlers
