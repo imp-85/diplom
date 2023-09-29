@@ -45,6 +45,9 @@
 Log Exporter
 ![Log Exporter](/pic/prometheus-nginxlog.jpg "Log Exporter")
 
+Используем CURL для проверки
+![curl](/pic/curl.jpg "curl")
+
 Ну и пробуем посмотреть всю эту "мазню" в браузере
 ![site](/pic/site.jpg "site")
 
